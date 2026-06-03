@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}Spending Analysis{% endblock %}
+
+{% block content %}
+  <div class="analysis-container">
+    <h1>Spending Analysis</h1>
+
+    <section class="ai-section">
+      <h2>AI Financial Suggestion</h2>
+      <p id="ai-suggestion">{{ ml_suggestion }}</p>
+
+      {% if top_category %}
+      <p>
+        Based on your transactions, your <strong>highest expense category</strong>
+        is <strong>{{ top_category }}</strong>, with a total of {{ top_amount }}.
+      </p>
+      {% else %}
+        <p>No expenses recorded yet for AI analysis.</p>
+      {% endif %}
+    </section>
+
+    <section class="chart-section">
+      <div class="chart-row" style="margin-top: 2rem;">
+        <div>
+          <h3>Income & Expense Overview</h3>
+          <canvas id="barChart" width="500" height="400"></canvas>
+        </div>
+        <div>
+          <h3>Income vs Expense Ratio</h3>
+          <canvas id="ratioChart" width="600" height="400"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="chart-section">
+      <h2>Income & Expense Breakdown</h2>
+      <div class="chart-row">
+        <div>
+          <h3>Income</h3>
+          <canvas id="incomeChart" width="600" height="400"></canvas>
+        </div>
+        <div>
+          <h3>Expenses</h3>
+          <canvas id="expenseChart" width="600" height="400"></canvas>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+      const incomeData = {{ income_labels|tojson }}.map((label, i) => ({
+          label: label,
+          amount: {{ incomes|tojson }}[i]
+      }));
+      const expenseData = {{ expense_labels|tojson }}.map((label, i) => ({
+          label: label,
+          amount: {{ expenses|tojson }}[i]
+      }));
+      const ratioData = {{ ratio_labels|tojson }}.map((label, i) => ({
+          label: label,
+          amount: {{ ratio_values|tojson }}[i]
+      }));
+
+      // Bar chart (overview)
+      const barData = [
+        { label: "Income", amount: {{ total_income }} },
+        { label: "Expenses", amount: {{ total_expenses }} }
+      ];
+      new CustomChart("barChart", "bar", barData, ["#2ecc71", "#e74c3c"]);
+
+      // Income/Expense details
+      new CustomChart("incomeChart", "pie", incomeData, ["#2ecc71","#27ae60","#1abc9c"]);
+      new CustomChart("expenseChart", "pie", expenseData, generateColors(expenseData.length));
+      new CustomChart("ratioChart", "pie", ratioData, ["#2ecc71","#e74c3c"]);
+  });
+  </script>
+{% endblock %}

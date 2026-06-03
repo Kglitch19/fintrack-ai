@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Edit Transaction{% endblock %}
+
+{% block content %}
+<div class="edit-transaction-container">
+    <h2>Edit Transaction</h2>
+    <form method="POST" class="edit-transaction-form">
+        <label for="amount">Amount</label>
+        <input type="text" id="amount" name="amount" value="{{ transaction[0] }}">
+
+        <label for="description">Description</label>
+        <input type="text" id="description" name="description" value="{{ transaction[1] }}">
+
+        <button type="submit">Save Changes</button>
+    </form>
+</div>
+{% endblock %}
+

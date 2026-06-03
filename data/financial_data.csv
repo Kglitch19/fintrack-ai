@@ -1,0 +1,41 @@
+Date,Description,Amount,Type,Category
+2024-01-03,"Monthly salary",2500,Income,Salary
+2024-01-05,"Paid apartment rent",800,Expense,Rent
+2024-01-08,"Grocery shopping at supermarket",200,Expense,Groceries
+2024-01-10,"Freelance web project payment",600,Income,Freelance
+2024-01-12,"Cinema tickets",150,Expense,Entertainment
+2024-01-14,"Electricity bill",100,Expense,Utilities
+2024-05-10,"Fast food lunch",50,Expense,Food
+2024-05-14,"Bus fare",20,Expense,Transport
+2024-02-01,"Monthly salary",2500,Income,Salary
+2024-02-05,"Paid apartment rent",800,Expense,Rent
+2024-02-09,"Supermarket groceries",180,Expense,Groceries
+2024-02-11,"Concert ticket",120,Expense,Entertainment
+2024-02-15,"Water bill",60,Expense,Utilities
+2024-02-18,"Taxi ride",35,Expense,Transport
+2024-02-20,"Dinner at restaurant",90,Expense,Food
+2024-03-01,"Monthly salary",2500,Income,Salary
+2024-03-05,"Paid apartment rent",800,Expense,Rent
+2024-03-07,"Pharmacy purchase",45,Expense,Healthcare
+2024-03-09,"Weekend groceries",220,Expense,Groceries
+2024-03-12,"Streaming subscription",15,Expense,Entertainment
+2024-03-14,"Internet bill",70,Expense,Utilities
+2024-03-17,"Freelance app design project",700,Income,Freelance
+2024-03-20,"Train ticket",40,Expense,Transport
+2024-03-22,"Coffee shop visit",25,Expense,Food
+2024-04-01,"Monthly salary",2500,Income,Salary
+2024-04-05,"Paid apartment rent",820,Expense,Rent
+2024-04-07,"Supermarket groceries",195,Expense,Groceries
+2024-04-10,"Movie night",130,Expense,Entertainment
+2024-04-12,"Gas bill",85,Expense,Utilities
+2024-04-14,"Petrol refill",60,Expense,Transport
+2024-04-18,"Lunch with colleagues",70,Expense,Food
+2024-04-20,"Freelance data entry project",500,Income,Freelance
+2024-05-01,"Monthly salary",2500,Income,Salary
+2024-05-05,"Paid apartment rent",810,Expense,Rent
+2024-05-08,"Supermarket groceries",210,Expense,Groceries
+2024-05-11,"Concert ticket",140,Expense,Entertainment
+2024-05-13,"Phone bill",65,Expense,Utilities
+2024-05-15,"Ride share",25,Expense,Transport
+2024-05-18,"Takeaway dinner",80,Expense,Food
+2024-05-22,"Doctor consultation",120,Expense,Healthcare

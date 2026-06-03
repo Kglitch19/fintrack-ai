@@ -1,0 +1,20 @@
+<header class="site-header">
+  <nav class="nav">
+    <div class="nav-left">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+    </div>
+    <div class="nav-center">
+      <a href="/">Home</a>
+      <a href="/analysis">Analysis</a>
+      <a href="/profile">Profile</a>
+    </div>
+    <div class="nav-right">
+      {% if username %}
+      <span class="welcome-msg">Welcome, {{ username }}</span>
+      {% endif %}
+      <form action="{{ url_for('logout') }}" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">Logout</button>
+      </form>
+    </div>
+  </nav>
+</header>
