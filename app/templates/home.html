@@ -3,75 +3,91 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-  
-  <div class="main-content">
 
-    <img src="{{ url_for('static', filename='logo.png') }}" alt="FinTrack Logo" class="logo">
+<div class="main-content">
 
-    <h1>Welcome to FinTrack</h1>
+  <img src="{{ url_for('static', filename='logo.png') }}" alt="FinTrack Logo" class="logo">
+  <h1>Welcome to FinTrack</h1>
 
-    <div class="totals-container">
-      <div class="total-box">
-        <h3>Total Income</h3>
-        <p>{{ total_income }}</p>
-      </div>
-      <div class="total-box">
-        <h3>Total Expenses</h3>
-        <p>{{ total_expenses }}</p>
-      </div>
-      <div class="total-box">
-        <h3>Surplus / Deficit</h3>
-        <p>{{ total_income - total_expenses }}</p>
-      </div>
-    </div><br><br>
+  <!-- Summary Cards -->
+  <div class="totals-container">
+    <div class="total-box">
+      <h3>Total Income</h3>
+      <p class="positive">{{ total_income }}</p>
+    </div>
+    <div class="total-box">
+      <h3>Total Expenses</h3>
+      <p>{{ total_expenses }}</p>
+    </div>
+    <div class="total-box">
+      <h3>Surplus / Deficit</h3>
+      {% set net = total_income - total_expenses %}
+      <p class="{{ 'positive' if net >= 0 else 'negative' }}">{{ net }}</p>
+    </div>
+  </div>
 
-
-    <form action="{{ url_for('add_transaction') }}" method="POST" class="transaction-form">
+  <!-- Transaction Form -->
+  <form action="{{ url_for('add_transaction') }}" method="POST" class="transaction-form">
     <h2>Enter Income or Expense</h2>
-    
-    <input type="number" name="amount" placeholder="Enter amount" required>
 
-    <label for="transaction_type">Type:</label>
-    <select name="transaction_type" required>
+    <label for="amount">Amount</label>
+    <input type="number" id="amount" name="amount" placeholder="0.00" required>
+
+    <label for="transaction_type">Type</label>
+    <select id="transaction_type" name="transaction_type" required>
       <option value="income">Income</option>
       <option value="expense">Expense</option>
     </select>
 
-    <label for="description">Description:</label>
-    <input type="text" name="description" placeholder="Description">
+    <label for="description">Description</label>
+    <input type="text" id="description" name="description" placeholder="e.g. Salary, Rent, Groceries">
 
     <button type="submit">Save Transaction</button>
-  </form><br><br><br>
+  </form>
 
-  <h2>Your Transactions</h2>
-    <table border="1">
-    <thead>
-      <tr>
-        <th>Amount</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for t in transactions %}
-      <tr>
-        <td>{{ t[1] }}</td>
-        <td>{{ t[2] }}</td>
-        <td>{{ t[3] }}</td>
-        <td>
-          <a href="/edit_transaction/{{ t[0] }}">Edit</a> |
-          <a href="/delete_transaction/{{ t[0] }}">Delete</a>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+  <!-- Transactions Table -->
+  <div class="transactions-section">
+    <h2>Your Transactions</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Amount</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if transactions %}
+          {% for t in transactions %}
+          <tr>
+            <td>{{ t[1] }}</td>
+            <td>{{ t[2] | capitalize }}</td>
+            <td>{{ t[3] }}</td>
+            <td>
+            <a href="/edit_transaction/{{ t[0] }}" class="action-btn edit">Edit</a>
+            <a href="/delete_transaction/{{ t[0] }}" class="action-btn delete">Delete</a>
+          </td>
+          </tr>
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td colspan="4" style="text-align:center; color:#888; padding: 2rem;">
+              No transactions yet — add one above to get started.
+            </td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
 
-  <a href="{{ url_for('analysis') }}"><button class="analyze-home">Analyze</button></a>
+  <!-- Analyse Button -->
+  <div class="analyse-wrap">
+    <a href="{{ url_for('analysis') }}">
+      <button class="analyze-home">Analyse</button>
+    </a>
+  </div>
 
 </div>
-
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 {% endblock %}

@@ -290,4 +290,9 @@ const chart = new CustomChart("myCanvas", "bar", data, colors);
 // Pie chart (switch type)
 const pieChart = new CustomChart("myCanvas", "pie", data, colors);
 
+document.querySelectorAll('.nav-center a').forEach(link => {
+  if (link.href === window.location.href) {
+    link.classList.add('active');
+  }
+});
 
