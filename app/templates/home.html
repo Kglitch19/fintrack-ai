@@ -40,7 +40,7 @@
     </select>
 
     <label for="description">Description</label>
-    <input type="text" id="description" name="description" placeholder="e.g. Salary, Rent, Groceries">
+    <input type="text" id="description" name="description" placeholder="e.g. Salary, Rent, Groceries" required>
 
     <button type="submit">Save Transaction</button>
   </form>
@@ -63,7 +63,7 @@
           <tr>
             <td>{{ t[1] }}</td>
             <td>{{ t[2] | capitalize }}</td>
-            <td>{{ t[3] }}</td>
+            <td>{{ t[3] | capitalize }}</td>
             <td>
             <a href="/edit_transaction/{{ t[0] }}" class="action-btn edit">Edit</a>
             <a href="/delete_transaction/{{ t[0] }}" class="action-btn delete">Delete</a>
