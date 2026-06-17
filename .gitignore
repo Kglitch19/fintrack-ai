@@ -14,3 +14,13 @@ instance/
 .DS_Store
 
 *.pkl
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build
+dist/
+build/
+*.egg-info/
