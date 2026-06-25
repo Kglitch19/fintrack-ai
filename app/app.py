@@ -239,22 +239,34 @@ def predict():
 def add_transaction():
     if 'user_id' not in session:
         return redirect(url_for('login'))  # Make sure user is logged in
+    print(f"Raw amount received: '{request.form.get('amount')}'")
+    try:
+        amount = float(request.form['amount'])
+    except ValueError:
+        flash("❌ Amount must be a number", "error")
+        return redirect(url_for('home'))
 
-    amount = request.form['amount']
+    if amount <= 0:
+        print("Negative amount blocked")
+        flash("❌ Amount must be greater than zero", "error")
+        return redirect(url_for('home'))    
+
     transaction_type = request.form['transaction_type'].lower().strip()
     description = request.form['description']
     user_id = session['user_id']
 
-    with sqlite3.connect('fintrack.db') as conn:
-        c = conn.cursor()
-
-        c.execute('''
-            INSERT INTO Transactions (User_id, Amount, Transaction_type, transaction_date, description)
-            VALUES (?, ?, ?, ?, ?)
-        ''', (user_id, amount, transaction_type, datetime.now(), description))
-
-        conn.commit()
-
+    try:
+        with sqlite3.connect('fintrack.db') as conn:
+            c = conn.cursor()
+            c.execute('''
+                INSERT INTO Transactions (User_id, Amount, Transaction_type, transaction_date, description)
+                VALUES (?, ?, ?, ?, ?)
+            ''', (user_id, amount, transaction_type, datetime.now(), description))
+            conn.commit()
+    except sqlite3.Error as e:
+        flash("❌ Could not save transaction. Please try again.", "error")
+        print(f"Database error: {e}")
+        
     return redirect(url_for('home'))
 
 
