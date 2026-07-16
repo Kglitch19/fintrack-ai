@@ -81,13 +81,18 @@ def login():
         print("Received POST request")
         email = request.form['email']
         password = request.form['password']
-        print(f"Email: {email}, Password: {password}")
 
-        conn = sqlite3.connect('fintrack.db')
-        cursor = conn.cursor()
-        cursor.execute('SELECT User_id, Password_Hash FROM Users WHERE Email = ?', (email,))
-        user = cursor.fetchone()
-        conn.close()
+        try: 
+            conn = sqlite3.connect('fintrack.db')
+            cursor = conn.cursor()
+            cursor.execute('SELECT User_id, Password_Hash FROM Users WHERE Email = ?', (email,))
+            user = cursor.fetchone()
+        except sqlite3.Error as e:
+            flash("❌ Something went wrong. Please try again.", "error")
+            print(f"Database error: {e}")
+            return render_template('login.html')
+        finally: 
+            conn.close()
 
         if user and check_password_hash(user[1], password):
             session['user_id'] = user[0]
