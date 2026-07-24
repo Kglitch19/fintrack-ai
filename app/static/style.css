@@ -569,3 +569,379 @@ canvas {
 .edit-transaction-form button:hover {
   background: #2e7d32;
 }
+
+/*about*/
+
+/* ============================================================
+   ABOUT PAGE — append these rules to the bottom of style.css
+   ============================================================ */
+
+/* ── Page wrapper ─────────────────────────────────────────── */
+.about-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.about-hero {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 4rem 0 3.5rem;
+}
+
+.about-hero-inner {
+  flex: 1;
+  min-width: 0;
+}
+
+.about-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #2e7d32;
+  background: #e8f5e9;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+.about-headline {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #2E2E2E;
+  margin-bottom: 1rem;
+}
+
+.about-subheadline {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 480px;
+}
+
+.about-cta-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-about-primary {
+  background: #2E2E2E;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease;
+  display: inline-block;
+}
+
+.btn-about-primary:hover {
+  background: #2e7d32;
+  text-decoration: none;
+}
+
+.btn-about-secondary {
+  background: transparent;
+  color: #2e7d32;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 2px solid #2e7d32;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+  display: inline-block;
+}
+
+.btn-about-secondary:hover {
+  background: #2e7d32;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ── Hero mock dashboard card ─────────────────────────────── */
+.about-hero-visual {
+  flex: 0 0 300px;
+}
+
+.mock-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #2e7d32;
+}
+
+.mock-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.mock-label {
+  font-size: 0.8rem;
+  color: #888;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.mock-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.mock-value.positive { color: #2e7d32; }
+.mock-value.negative { color: #c0392b; }
+
+.mock-divider {
+  height: 1px;
+  background: #eee;
+  margin: 0.25rem 0;
+}
+
+.mock-bar-wrap {
+  margin-top: 1rem;
+}
+
+.mock-bar {
+  height: 8px;
+  background: #2e7d32;
+  border-radius: 4px;
+  margin-bottom: 0.4rem;
+  position: relative;
+}
+
+.mock-bar::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 34%;
+  height: 100%;
+  background: #e0e0e0;
+  border-radius: 0 4px 4px 0;
+}
+
+.mock-bar-label {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.mock-insight {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: #e8f5e9;
+  border-left: 4px solid #2e7d32;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #1b5e20;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ── Section title shared ─────────────────────────────────── */
+.about-section-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2E2E2E;
+  margin-bottom: 2.5rem;
+}
+
+/* ── Features grid ────────────────────────────────────────── */
+.about-features {
+  padding: 3rem 0;
+  border-top: 1px solid #e8f5e9;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-top: 3px solid #4CAF50;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2E2E2E;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ── How it works ─────────────────────────────────────────── */
+.about-how {
+  padding: 3rem 0;
+  border-top: 1px solid #e8f5e9;
+}
+
+.how-steps {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.how-step {
+  flex: 1;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.step-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #2e7d32;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.how-step h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2E2E2E;
+  margin-bottom: 0.5rem;
+}
+
+.how-step p {
+  font-size: 0.88rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.how-connector {
+  flex: 0 0 40px;
+  height: 2px;
+  background: #c8e6c9;
+  margin-top: 22px;
+  align-self: flex-start;
+}
+
+/* ── Tech stack chips ─────────────────────────────────────── */
+.about-tech {
+  padding: 3rem 0;
+  border-top: 1px solid #e8f5e9;
+  text-align: center;
+}
+
+.tech-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.tech-chip {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid #c8e6c9;
+}
+
+/* ── Final CTA ────────────────────────────────────────────── */
+.about-final-cta {
+  margin-top: 1rem;
+  background: #2e7d32;
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.about-final-cta h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.about-final-cta p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
+}
+
+.about-final-cta .btn-about-primary {
+  background: #fff;
+  color: #2e7d32;
+}
+
+.about-final-cta .btn-about-primary:hover {
+  background: #f1f8e9;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .about-hero {
+    flex-direction: column;
+    padding: 2.5rem 0 2rem;
+    gap: 2rem;
+  }
+
+  .about-hero-visual {
+    flex: none;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .about-headline {
+    font-size: 1.75rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .how-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .how-connector {
+    width: 2px;
+    height: 30px;
+    flex: none;
+    margin: 0 auto;
+  }
+}
