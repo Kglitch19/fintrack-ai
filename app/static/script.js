@@ -275,21 +275,6 @@ class CustomChart {
 }
 
 
-// Example usage:
-const data = [
-  { label: "Food", amount: 200 },
-  { label: "Rent", amount: 800 },
-  { label: "Transport", amount: 150 }
-];
-
-const colors = generateColors(data.length);
-
-// Bar chart
-const chart = new CustomChart("myCanvas", "bar", data, colors);
-
-// Pie chart (switch type)
-const pieChart = new CustomChart("myCanvas", "pie", data, colors);
-
 document.querySelectorAll('.nav-center a').forEach(link => {
   if (link.href === window.location.href) {
     link.classList.add('active');
